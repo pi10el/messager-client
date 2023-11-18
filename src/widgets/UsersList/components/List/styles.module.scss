@@ -1,0 +1,35 @@
+@import '../../../../app/styles/mixins.scss';
+
+.list {
+  min-height: calc(100vh - 50px);
+  max-height: calc(100vh - 50px);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  padding: step(1);
+  border-bottom: 1px solid #00000040;
+
+  & > svg {
+    max-width: 40px;
+  }
+
+  & > img {
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  & > span {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 18px;
+    margin-left: step(2);
+    overflow: hidden;
+  }
+}

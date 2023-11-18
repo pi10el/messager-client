@@ -1,0 +1,27 @@
+@import '../../../app/styles/mixins.scss';
+
+.tabs {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  height: 100vh;
+  box-shadow: 0 0 2px 0 #00000090;
+  overflow: hidden;
+}
+
+.content {
+  position: absolute;
+  display: flex;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.tab {
+  position: relative;
+  background-color: var(--page-color);
+  width: 350px;
+  min-width: 350px;
+  height: 100%;
+}

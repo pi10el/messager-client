@@ -1,0 +1,65 @@
+@import '../../../../app/styles/mixins.scss';
+
+.content {
+  display: flex;
+  justify-content: space-between;
+
+  & > div {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.backBtn {
+  width: 40px;
+  min-width: 40px;
+
+  & > svg {
+    display: block;
+    fill: var(--white-color);
+    padding: step(1);
+    transform: rotateZ(-90deg);
+  }
+
+  @media (min-width: 710px) {
+    display: none;
+  }
+}
+
+.profileBtn {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-left: step(2);
+
+  & > img {
+    display: block;
+    border-radius: 50%;
+    width: 40px;
+    object-fit: cover;
+  }
+
+  & > svg {
+    max-width: 40px;
+    max-height: 40px;
+  }
+
+  & > span {
+    color: var(--white-color);
+    font-size: 16px;
+    margin-left: step(1);
+  }
+}
+
+.optionsBtn {
+  display: block;
+  width: 40px;
+  height: 40px;
+
+  & > svg {
+    display: block;
+    fill: var(--white-color);
+    height: 100%;
+    transform: rotateZ(90deg);
+  }
+}

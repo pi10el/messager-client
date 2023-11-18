@@ -1,0 +1,11 @@
+.content {
+  width: 100%;
+}
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  min-height: calc(100vh - 50px);
+  max-height: calc(100vh - 50px);
+}

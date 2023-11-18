@@ -1,0 +1,1 @@
+export { EmptyPhoto } from './components';

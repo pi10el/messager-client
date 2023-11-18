@@ -1,0 +1,10 @@
+:root {
+  --white-color: #f3f5f9;
+  --page-color: #2f2e34;
+  --block-color: #41434b;
+  --accent-one: #768397;
+  --accent-two: #b19eb6;
+}
+
+@media (prefers-color-scheme: dark) {
+}

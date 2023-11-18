@@ -1,0 +1,119 @@
+@import '../../../app/styles/mixins.scss';
+
+.sidebar {
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.content {
+  width: 85%;
+  max-width: 350px;
+  height: 100%;
+  background-color: var(--page-color);
+  box-shadow: 0 0 2px 0 #00000090;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--block-color);
+  box-shadow: 0 0 2px 0 #00000090;
+
+  & > button {
+    width: 40px;
+    height: 40px;
+
+    & > svg {
+      padding: step(1);
+      fill: var(--white-color);
+      transform: rotateZ(-90deg);
+    }
+  }
+}
+
+.image {
+  display: flex;
+  align-items: center;
+  padding: step(1) step(2);
+
+  & > img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  & > svg {
+    max-width: 50px;
+    max-height: 50px;
+  }
+
+  & > h1 {
+    font-size: 20px;
+    margin-left: step(2);
+  }
+}
+
+.part {
+  display: flex;
+  flex-direction: column;
+  padding: step(1) 0 step(1) step(2);
+
+  & > span {
+    color: var(--accent-two);
+  }
+
+  & > button,
+  & > div {
+    text-align: left;
+    padding: step(1) 0;
+    border-bottom: 1px solid #00000030;
+  }
+}
+
+.accountBtn {
+  & > p {
+    font-size: 15px;
+  }
+
+  & > span {
+    display: block;
+    opacity: 0.5;
+    margin-top: step(1);
+  }
+}
+
+.settingsBtn {
+  display: flex;
+  align-items: center;
+
+  & > svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--white-color);
+  }
+
+  & > span {
+    font-size: 14px;
+    margin-left: step(2);
+  }
+}
+
+.theme {
+  display: flex;
+  justify-content: space-between;
+  margin-right: step(2);
+}
+
+.overlay {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000090;
+}

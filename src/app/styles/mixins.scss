@@ -1,0 +1,16 @@
+$step: 5px;
+
+$mouse-device: '(hover: hover) and (pointer: fine)';
+$touch-device: '(hover: none) and (pointer: coarse)';
+
+// .button {
+//   &:hover {
+//     @media #{$mouse-device} {
+//       // только для мышки
+//     }
+//   }
+// }
+
+@function step($size) {
+  @return $step * $size;
+}

@@ -1,0 +1,21 @@
+@import '../../../../app/styles/mixins.scss';
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.back {
+  width: 40px;
+  height: 40px;
+
+  & > svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--white-color);
+    padding: step(1);
+    transform: rotateZ(-90deg);
+  }
+}
