@@ -1,5 +1,7 @@
 # 💬 Chat
 
+## 💻 website: ➡️ https://messager-client.vercel.app/ ⬅️
+
 ## 📜 Лицензия: [![MIT License](https://img.shields.io/static/v1?label=License&message=Attribution-NonCommercial-ShareAlike&color=<COLOR>)](https://creativecommons.org/licenses/by-nc-sa/3.0/)
 
 ### 📚 Стек
