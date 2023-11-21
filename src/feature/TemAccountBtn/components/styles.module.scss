@@ -1,0 +1,62 @@
+@import '../../../app/styles/mixins.scss';
+
+.buttons {
+  position: absolute;
+  display: flex;
+  top: 10px;
+  width: 300px;
+  height: 30px;
+
+  & > button {
+    box-shadow: 0 0 2px 0 #00000090;
+  }
+}
+
+.accountBtn {
+  width: 100%;
+  border-radius: step(3);
+  background-color: var(--accent-one);
+}
+
+.questionBtn {
+  z-index: 3;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-left: step(2);
+  background-color: var(--block-color);
+
+  & > svg {
+    display: block;
+    min-width: 30px;
+    height: 100%;
+    padding: 8px;
+    fill: var(--white-color);
+  }
+}
+
+.dropdown {
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  top: 150%;
+  max-width: 250px;
+  border-radius: step(3);
+  padding: step(2);
+  box-shadow: 0 0 2px 0 #00000090;
+  transform-origin: top;
+  background-color: var(--block-color);
+
+  & > span {
+    font-size: 13px;
+  }
+}
+
+.overlay {
+  cursor: default;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000090;
+}

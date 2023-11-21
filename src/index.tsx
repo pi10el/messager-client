@@ -5,11 +5,6 @@ import './app/styles/vars.css';
 import './app/styles/global.scss';
 
 // components
-import { WithStore } from './app/providers/WithStore';
-import { MainPage } from './page/MainPage';
+import { App } from './page/App';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <WithStore>
-    <MainPage />
-  </WithStore>,
-);
+ReactDOM.createRoot(document.getElementById('root')!).render(<App />);
