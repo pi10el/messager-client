@@ -1,9 +1,14 @@
 import { motion } from 'framer-motion';
-import { forwardRef } from 'react';
+import { forwardRef, useEffect } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { useCookies } from 'react-cookie';
+import { useNavigate } from 'react-router-dom';
 
 // state
 import useAppDispatch from '../../../shared/hooks/useAppDispatch';
+
+// api
+import { useRegisterMutation } from '../api/auth.api';
 
 // styles
 import styles from './styles.module.scss';
@@ -24,6 +29,9 @@ interface IShippingFields {
 
 const Form = forwardRef<HTMLFormElement>((_, ref) => {
   const { setSelectForm } = useAppDispatch();
+  const [update, result] = useRegisterMutation();
+  const [__, setCookie] = useCookies();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -32,16 +40,29 @@ const Form = forwardRef<HTMLFormElement>((_, ref) => {
     setValue,
     getValues,
     trigger,
+    watch,
     formState: { isValid, errors },
   } = useForm<IShippingFields>({
     mode: 'all',
   });
 
+  const password = watch('password');
+  useEffect(() => {
+    if (getValues('cpassword').length > 8) trigger('cpassword');
+  }, [trigger, password]);
+
+  useEffect(() => {
+    if (!result.data) return;
+
+    setCookie('token', result.data, { maxAge: 2592000 });
+    navigate('/');
+  }, [result]);
+
   const onSubmit: SubmitHandler<IShippingFields> = async ({
     cpassword,
     ...data
   }) => {
-    console.log(data);
+    update(data);
 
     reset();
   };
@@ -99,7 +120,6 @@ const Form = forwardRef<HTMLFormElement>((_, ref) => {
             const minLength = 8;
 
             if (val.length < minLength) {
-              trigger('cpassword');
               return `мин. ${minLength} символов, ввели: ${val.length}`;
             }
           },
@@ -116,8 +136,11 @@ const Form = forwardRef<HTMLFormElement>((_, ref) => {
             setValue('cpassword', e.target.value.replace(/[А-Яа-яЁё\s]/g, '')),
           required: 'обязательное поле',
           validate: (val: string) => {
-            if (val.length < 8)
-              return `мин. ${8} символов, ввели: ${val.length}`;
+            const minLength = 8;
+
+            if (val.length < minLength) {
+              return `мин. ${minLength} символов, ввели: ${val.length}`;
+            }
 
             if (getValues('password') !== val) return 'пароли не совпадают';
           },

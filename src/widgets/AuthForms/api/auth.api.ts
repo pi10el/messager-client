@@ -1,19 +1,19 @@
+import type { ILoginBody, IRegisterBody, IToken } from '../types/api.types';
 import { api } from '../../../app/store/api';
-
-interface ILoginBody {
-  username: string;
-  password: string;
-}
-
-interface ILoginResponse {
-  token: string;
-}
 
 const authApi = api.injectEndpoints({
   endpoints: (build) => ({
-    login: build.mutation<ILoginResponse, ILoginBody>({
+    login: build.mutation<IToken, ILoginBody>({
       query: (body) => ({
         url: 'auth/login',
+        method: 'POST',
+        body,
+      }),
+    }),
+
+    register: build.mutation<IToken, IRegisterBody>({
+      query: (body) => ({
+        url: 'auth/register',
         method: 'POST',
         body,
       }),
@@ -21,4 +21,4 @@ const authApi = api.injectEndpoints({
   }),
 });
 
-export const { useLoginMutation } = authApi;
+export const { useLoginMutation, useRegisterMutation } = authApi;

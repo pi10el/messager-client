@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { useCookies } from 'react-cookie';
+import { useNavigate } from 'react-router-dom';
+
 // state
 import useAppDispatch from '../../../shared/hooks/useAppDispatch';
 
@@ -14,8 +17,6 @@ import styles from './styles.module.scss';
 import { Input } from '../../../feature/Input';
 import { LockIcon } from '../../../shared/components/icons/LockIcon';
 import { UserIcon } from '../../../shared/components/icons/UserIcon';
-import { useCookies } from 'react-cookie';
-import { useNavigate } from 'react-router-dom';
 
 interface IShippingFields {
   username: string;
@@ -40,7 +41,7 @@ const Form = React.forwardRef<HTMLFormElement>((_, ref) => {
 
   useEffect(() => {
     if (!result.data) return;
-    setCookie('token', result.data.token);
+    setCookie('token', result.data.token, { maxAge: 2592000 });
     navigate('/');
   }, [result]);
 
