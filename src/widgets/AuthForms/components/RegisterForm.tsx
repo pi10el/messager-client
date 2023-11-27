@@ -54,7 +54,7 @@ const Form = forwardRef<HTMLFormElement>((_, ref) => {
   useEffect(() => {
     if (!result.data) return;
 
-    setCookie('token', result.data, { maxAge: 2592000 });
+    setCookie('token', result.data.token, { maxAge: 2592000 });
     navigate('/');
   }, [result]);
 

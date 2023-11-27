@@ -9,6 +9,7 @@ export interface AppState {
   selectedForm: TForm;
   tab: TTab;
   chatId: TChatId;
+  alerts: IAlert[];
 }
 
 const initialState: AppState = {
@@ -16,6 +17,7 @@ const initialState: AppState = {
   selectedForm: 'login',
   tab: 'chats',
   chatId: null,
+  alerts: [],
 };
 
 const appSlice = createSlice({
@@ -37,6 +39,8 @@ const appSlice = createSlice({
     setChatId: (state, { payload }: PayloadAction<TChatId>) => {
       state.chatId = payload;
     },
+
+    reset: () => initialState,
   },
 });
 

@@ -1,19 +1,23 @@
-import { Navigate } from 'react-router-dom';
-import { useAuth } from '../shared/hooks/useAuth';
-
 // components
 import { Chat } from '../widgets/Chat';
 import { Tabs } from '../widgets/Tabs';
+import { ProtectedRoute } from '../app/providers/ProtectedRoute';
+import { useConnectSocket } from '../shared/hooks/useConnectSocet';
+import { Loader } from '../feature/Loader';
+import { Alerts } from '../widgets/Alerts';
 
 export function MainPage() {
-  const isAuth = useAuth();
+  const status = useConnectSocket();
 
-  if (!isAuth) return <Navigate to="auth" replace />;
+  if (!status) return <Loader />;
 
   return (
-    <main>
-      <Tabs />
-      <Chat />
-    </main>
+    <ProtectedRoute path="auth">
+      <main>
+        <Tabs />
+        <Chat />
+      </main>
+      <Alerts />
+    </ProtectedRoute>
   );
 }

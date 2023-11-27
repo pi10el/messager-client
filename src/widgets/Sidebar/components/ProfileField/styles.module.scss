@@ -1,0 +1,42 @@
+@import '../../../../app/styles/mixins.scss';
+
+.field {
+  display: flex;
+  flex-direction: column;
+
+  & > div {
+    position: relative;
+    display: flex;
+    margin-right: step(2);
+
+    & > input {
+      width: 100%;
+      font-size: 16px;
+      padding-right: 40px;
+      min-height: 30px;
+    }
+
+    & > button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 30px;
+      min-width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      box-shadow: inset 0 0 2px 1px #00000090;
+      background-color: var(--block-color);
+
+      & > svg {
+        display: block;
+        fill: var(--white-color);
+        padding: step(1);
+      }
+    }
+  }
+
+  & > label {
+    font-size: 14px;
+    opacity: 0.5;
+  }
+}
