@@ -6,12 +6,12 @@ import styles from './styles.module.scss';
 
 // components
 import { Wrapper } from './Wrapper';
-import { MoreIcon } from '../../../shared/components/icons/MoreIcon';
 import { PaletteColorIcon } from '../../../shared/components/icons/PaletteColorIcon';
 import { SwitchTheme } from '../../../feature/SwitchTheme';
 import { EmptyPhoto } from '../../../entities/EmptyPhoto';
 import { ExitButton } from './ExitButton';
 import { ProfileField } from './ProfileField';
+import { MoreButton } from './MoreButton';
 
 export function Sidebar() {
   const [profile, setProfile] = useState<UserProfile | null>(null);
@@ -32,9 +32,7 @@ export function Sidebar() {
           )}
           <h1>{profile?.username}</h1>
         </div>
-        <button type="button">
-          <MoreIcon />
-        </button>
+        <MoreButton />
       </div>
       <div className={styles.part}>
         <span>Аккаунт</span>

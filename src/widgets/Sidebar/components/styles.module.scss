@@ -5,17 +5,6 @@
   justify-content: space-between;
   background-color: var(--block-color);
   box-shadow: 0 0 2px 0 #00000090;
-
-  & > button {
-    width: 40px;
-    height: 40px;
-
-    & > svg {
-      padding: step(1);
-      fill: var(--white-color);
-      transform: rotateZ(-90deg);
-    }
-  }
 }
 
 .image {
